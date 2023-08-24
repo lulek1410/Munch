@@ -1,0 +1,38 @@
+#people-page {
+	padding-top: var(--m-top-page);
+}
+
+#people-bio {
+	--content-width: max(60vw, 280px);
+	display: grid;
+	place-items: center;
+	min-height: 70vh;
+	margin-bottom: 3rem;
+}
+
+.join-button {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 3vh;
+}
+
+#people-img {
+	width: var(--content-width);
+	aspect-ratio: 1.8;
+	object-fit: cover;
+	box-shadow: 10px 10px var(--c-accent), 15px 15px 5px black;
+}
+
+#about {
+	margin-top: 1.5rem;
+}
+
+.description {
+	width: var(--content-width);
+	line-height: 30px;
+}
+
+.email-link {
+	color: var(--c-primary);
+	text-decoration: none;
+}

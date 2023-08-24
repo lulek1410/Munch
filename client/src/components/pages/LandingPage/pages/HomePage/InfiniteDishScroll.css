@@ -1,0 +1,85 @@
+#scroll-container {
+	position: relative;
+	width: 100%;
+	height: 30vh;
+	overflow: hidden;
+}
+
+.scroll-image {
+	width: 100%;
+	height: 30vh;
+	z-index: 2;
+	object-fit: cover;
+}
+
+.scroll-element {
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: calc(100vw / 3);
+	position: absolute;
+	top: 0;
+}
+
+@media (width < 850px) {
+	.scroll-element {
+		grid-auto-columns: calc(100vw / 2);
+	}
+}
+
+@media (width < 400px) {
+	.scroll-element {
+		grid-auto-columns: 100vw;
+	}
+}
+
+.primary {
+	animation: primary 40s linear infinite;
+}
+
+.secondary {
+	animation: secondary 40s linear infinite;
+}
+
+.primary-reversed {
+	animation: primary-reversed 40s linear infinite;
+}
+
+.secondary-reversed {
+	animation: secondary-reversed 40s linear infinite;
+}
+
+@keyframes primary {
+	from {
+		left: 0;
+	}
+	to {
+		left: calc(-100% - (100vw / 3) * 5);
+	}
+}
+
+@keyframes secondary {
+	from {
+		left: calc(100% + (100vw / 3) * 5);
+	}
+	to {
+		left: 0%;
+	}
+}
+
+@keyframes primary-reversed {
+	from {
+		right: 0%;
+	}
+	to {
+		right: calc(-100% - (100vw / 3) * 5);
+	}
+}
+
+@keyframes secondary-reversed {
+	from {
+		right: calc(100% + (100vw / 3) * 5);
+	}
+	to {
+		right: 0%;
+	}
+}

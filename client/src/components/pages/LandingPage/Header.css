@@ -1,0 +1,49 @@
+#page-header {
+	--h-padding-vertical: 1rem;
+	display: grid;
+	grid-template-columns: 8rem 1fr;
+
+	position: fixed;
+	inset: 0;
+
+	padding: var(--h-padding-vertical) 5vw;
+	height: var(--header-height);
+	background-color: var(--c-primary);
+
+	text-align: center;
+
+	z-index: 2;
+}
+
+#page-header > a {
+	display: grid;
+	place-items: center;
+}
+
+#header-logo {
+	transform: translateY(-8px);
+	width: 7.5rem;
+	height: 100%;
+}
+
+.navigation-list {
+	flex: 1;
+	display: flex;
+}
+
+nav a {
+	text-decoration: none;
+	color: white;
+	cursor: pointer;
+	margin: auto;
+}
+
+@media (width < 500px) {
+	#page-header {
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: none;
+	}
+	#page-header nav {
+		height: 30px;
+	}
+}

@@ -1,0 +1,48 @@
+#menu-page h2 {
+	margin-top: var(--m-top-page);
+	pointer-events: none;
+}
+
+#menu-page > h3 {
+	margin-top: max(4vh, 20px);
+	pointer-events: none;
+}
+
+#menu-page > h1 {
+	text-align: center;
+	margin-block: 2rem;
+	pointer-events: none;
+}
+
+:is(#menu-navigation, .menu-section) {
+	width: 60%;
+	margin: auto;
+}
+
+#menu-navigation {
+	text-align: center;
+}
+
+.menu-section-items {
+	display: grid;
+	grid-template-rows: 1fr;
+	row-gap: 30px;
+}
+
+@media (width <= 930px) {
+	:is(#menu-navigation, .menu-section) {
+		width: 70%;
+	}
+}
+
+@media (width <= 790px) {
+	:is(#menu-navigation, .menu-section) {
+		width: 80%;
+	}
+}
+
+@media (width <= 680px) {
+	:is(#menu-navigation, .menu-section) {
+		width: 100%;
+	}
+}

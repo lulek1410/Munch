@@ -1,0 +1,48 @@
+:is(*, *::befor, *::after) {
+	box-sizing: inherit;
+	padding: 0;
+	margin: 0;
+}
+
+:root {
+	--document-padding-h: 3vw;
+	--header-height: max(8vh, 80px);
+	--footer-height: 20rem;
+	--c-primary: #405d85;
+	--c-primary-dark: #0d3b5c;
+	--c-secondary: white;
+	--c-accent: #b0051e;
+	--c-bg: #282828;
+	--m-top-page: max(6vh, 20px);
+}
+
+html {
+	scroll-behavior: smooth;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	min-width: 100%;
+}
+
+:is(html, button, section) {
+	font-size: calc(12px + 0.390625vw);
+}
+
+body {
+	flex-grow: 1;
+	position: relative;
+	padding: var(--header-height) var(--document-padding-h)
+		calc(var(--footer-height) + 2rem) var(--document-padding-h);
+	min-height: 100%;
+	min-width: 100%;
+	overflow-x: hidden;
+	box-sizing: border-box;
+
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+	line-height: 1.5;
+	letter-spacing: 0.00938em;
+	color: white;
+	background-color: var(--c-bg);
+}

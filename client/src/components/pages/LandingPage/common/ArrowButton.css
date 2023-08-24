@@ -1,0 +1,21 @@
+#arrow-btn {
+	--shadow-offset: 4px;
+	width: 10rem;
+	height: 5vh;
+	margin-top: 1vh;
+	box-shadow: var(--shadow-offset) var(--shadow-offset) var(--c-accent),
+		calc(-1 * var(--shadow-offset)) calc(-1 * var(--shadow-offset))
+			var(--c-primary);
+}
+
+#arrow-btn:hover {
+	--shadow-offset: 8px;
+	scale: 1.05;
+}
+
+.button {
+	background-color: white;
+	border: 2px black solid;
+	padding: max(1vh, 20px) max(1vw, 10px);
+	transition: box-shadow 200ms, scale 200ms;
+}
