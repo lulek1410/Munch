@@ -12,22 +12,24 @@ const ContactPage = () => {
 	return (
 		<main>
 			<section id="contact-title" className="screen-width">
-				<img src={contact} alt="phone" />
+				<img src={contact} alt="contact" />
 			</section>
 			<section id="contact-section">
 				<h1>{t("contact")}</h1>
 				<h2>{t("restaurant-w-name")}</h2>
-				<p>{t("adress")}</p>
-				{contactInfo.openingHours.map(({ day, time }) => {
-					return (
-						<p key={day}>
-							{t(`${day}`, { ns: "Kontakt", defaultValue: `${day}` })}{" "}
-							{t(`${time}`, { ns: "Kontakt" })}
-						</p>
-					);
-				})}
+				<p>{t("adress", { defaultValue: contactInfo.adress })}</p>
+				{contactInfo.openingHours &&
+					contactInfo.openingHours.map(({ day, time }) => {
+						return (
+							<p key={day}>
+								{t(`${day}`, { ns: "Kontakt", defaultValue: `${day}` }) +
+									" " +
+									t(`${time}`, { ns: "Kontakt" })}
+							</p>
+						);
+					})}
 				<h2>{t("reservations")}</h2>
-				<p>tel.: +48 {contactInfo.phoneNumber}</p>
+				<p>{`tel.: +48 ${contactInfo.phoneNumber}`}</p>
 				<p>{contactInfo.email}</p>
 			</section>
 		</main>

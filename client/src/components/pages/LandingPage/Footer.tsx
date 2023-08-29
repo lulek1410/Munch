@@ -71,16 +71,16 @@ const Footer = () => {
 				<p>{t("adress")}</p>
 				{contactInfo.openingHours
 					? contactInfo.openingHours.map(({ day, time }) => {
-						return (
-							<p key={day}>
-								{t(`${day}`, { ns: "Kontakt", defaultValue: `${day}` })}{" "}
-								{t(`${time}`, { ns: "Kontakt" })}
-							</p>
-						);
-					})
+							return (
+								<p key={day}>
+									{t(`${day}`, { ns: "Kontakt", defaultValue: `${day}` })}{" "}
+									{t(`${time}`, { ns: "Kontakt" })}
+								</p>
+							);
+					  })
 					: null}
 				<h4>{t("reserve-table")}</h4>
-				<p>{contactInfo.phoneNumber}</p>
+				<p>tel.: +48 {contactInfo.phoneNumber}</p>
 				<p>{contactInfo.email}</p>
 			</div>
 		</footer>

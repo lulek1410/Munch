@@ -1,22 +1,14 @@
 import "./EventCard.css";
 
-import { useNavigate } from "react-router-dom";
-
 import StyledDivider from "./StyledDivider";
 import { useTranslation } from "react-i18next";
-
-interface EventCardProps {
-	image: string;
-	title: string;
-	shortdescription: string;
-	postDate: string;
-	id: string;
-}
+import EventCardProps from "./interfaces/EventCardProps";
+import { useNavigate } from "react-router-dom";
 
 const EventCard = ({
 	image,
 	title,
-	shortdescription,
+	shortDescription,
 	postDate,
 	id,
 }: EventCardProps) => {
@@ -25,26 +17,20 @@ const EventCard = ({
 
 	return (
 		<div
-			id="event-card"
-			onClick={() => {
-				navigate(`/news/${id}`);
-			}}
+			className="event-card"
+			onClick={() => navigate(`/news/${id}`)}
+			data-testid="eventCard"
 		>
-			<img src={image} alt="event" id="event-image" />
-			<div
-				id="event-title"
-				className="parent-centered-container glass centered-container"
-			>
+			<img src={image} alt="event" className="event-image" />
+			<div className="event-title parent-centered-container glass centered-container">
 				<h3>{t(`${title}`)}</h3>
 			</div>
-			<div id="short-description" className="glass">
+			<section className="glass short-description">
 				<h2>{t(`${title}`)}</h2>
 				<StyledDivider />
-				<p>{t(`${title}-krótki`, { defaultValue: `${shortdescription}` })}</p>
-			</div>
-			<div id="post-date" className="glass">
-				posted: {postDate}
-			</div>
+				<p>{t(`${title}-krótki`, { defaultValue: `${shortDescription}` })}</p>
+			</section>
+			<div className="glass post-date">{`posted: ${postDate}`}</div>
 		</div>
 	);
 };

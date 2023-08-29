@@ -1,71 +1,61 @@
 import "./HomePage.css";
 
-import { ScrollRestoration, useNavigate } from "react-router-dom";
+import { ScrollRestoration } from "react-router-dom";
 
-import restaurant from "./../../../../../assets/restaurant.webp";
+import restaurant from "./../../../../../assets/munch_bg.webp";
+import logo from "./../../../../../assets/munchlogo.svg";
 
 import InfiniteDishScroll from "./InfiniteDishScroll";
 import NewestEvents from "./NewestEvents";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import LoadingPage from "../LoadingPage/LoadingPage";
+import useClickRedirection from "../../common/hooks/useClickRedirection";
+import loadImage from "./common/loadImage";
 
-const MainPage = () => {
+const HomePage = () => {
 	const { t } = useTranslation();
-	const navigate = useNavigate();
+	const navigate = useClickRedirection("/menu");
 	const [imgsLoaded, setImgsLoaded] = useState(false);
-
 	useEffect(() => {
-		const loadImage = (imageUrl: string) => {
-			return new Promise((resolve, reject) => {
-				const loadImg = new Image();
-				loadImg.src = imageUrl;
-				loadImg.onload = () => resolve(imageUrl);
-				loadImg.onerror = (err) => reject(err);
-			});
-		};
-
 		loadImage(restaurant)
-			.then(() => setImgsLoaded(true))
-			.catch((err) => console.log("Failed to load images", err));
+			.then(() => {
+				setImgsLoaded(true);
+			})
+			.catch((err: unknown) => console.log("Failed to load images", err));
 	}, []);
+
+	if (!imgsLoaded) {
+		return (
+			<main>
+				<LoadingPage />
+			</main>
+		);
+	}
 
 	return (
 		<main>
-			{imgsLoaded ? (
-				<>
-					<ScrollRestoration />
-					<section id="hero" className="screen-width">
-						<img src={restaurant} alt="restaurant interior" />
-						<div id="hero-description">
-							<h1>Münch</h1>
-							<h2>Jakieś hasło</h2>
-							<p>może jakis krótki opis</p>
-						</div>
-					</section>
-					<section id="invitation" className="screen-width">
-						<div
-							id="button-container"
-							className="parent-centered-container glass centered-container"
-						>
-							<button
-								className="button btn-big"
-								onClick={() => {
-									navigate("/menu");
-								}}
-							>
-								{t("menu-btn")}
-							</button>
-						</div>
-						<InfiniteDishScroll />
-					</section>
-					<NewestEvents />
-				</>
-			) : (
-				<LoadingPage />
-			)}
+			<ScrollRestoration />
+			<section id="hero" className="screen-width">
+				<img src={restaurant} alt="restaurant interior" />
+				<div id="hero-description">
+					<img src={logo} alt="logo" />
+				</div>
+			</section>
+			<section id="invitation" className="screen-width">
+				<div
+					id="button-container"
+					className="parent-centered-container glass centered-container"
+				>
+					<button className="button btn-big" onClick={navigate}>
+						{t("menu-btn")}
+					</button>
+				</div>
+				<InfiniteDishScroll />
+			</section>
+			<NewestEvents />
 		</main>
 	);
 };
 
-export default MainPage;
+export default HomePage;

@@ -5,13 +5,13 @@ import ScrollElement from "./ScrollElement";
 const InfiniteDishScroll = () => {
 	return (
 		<>
-			<div id="scroll-container">
-				<ScrollElement direction="left" animation="primary" />
-				<ScrollElement direction="left" animation="secondary" />
+			<div className="scroll-container">
+				<ScrollElement animation="primary" />
+				<ScrollElement animation="secondary" />
 			</div>
-			<div id="scroll-container">
-				<ScrollElement direction="right" animation="primary-reversed" />
-				<ScrollElement direction="right" animation="secondary-reversed" />
+			<div className="scroll-container">
+				<ScrollElement animation="primary-reversed" />
+				<ScrollElement animation="secondary-reversed" />
 			</div>
 		</>
 	);

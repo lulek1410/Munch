@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import Footer from "../Footer";
 import { BrowserRouter } from "react-router-dom";
 import { ContactInfoContext } from "../context/ContactInfoContext";
-import {renderWithBrowserRouter} from "../__utils__/RenderWithRouter";
+import { renderWithBrowserRouter } from "../__utils__/RenderWithRouter";
 
 describe("Footer tests", () => {
 	it("should display logo and navigation items with proper redirection routes", () => {
@@ -42,7 +42,7 @@ describe("Footer tests", () => {
 		expect(screen.getByText("adress")).toBeInTheDocument();
 		expect(screen.getByText("PN-PT 8:00-18:00")).toBeInTheDocument();
 		expect(screen.getByText("reserve-table")).toBeInTheDocument();
-		expect(screen.getByText(phoneNumber)).toBeInTheDocument();
+		expect(screen.getByText("tel.: +48 123123123")).toBeInTheDocument();
 		expect(screen.getByText(email)).toBeInTheDocument();
 	});
 

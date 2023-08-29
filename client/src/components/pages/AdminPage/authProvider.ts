@@ -51,8 +51,7 @@ export const Auth0AuthProvider = (
 			localStorage.setItem(PreviousLocationStorageKey, window.location.href);
 			return client.loginWithRedirect({
 				authorizationParams: {
-					redirect_uri:
-						loginRedirectUri ?? `${window.location.origin}/auth-callback`,
+					redirect_uri: loginRedirectUri ?? `${window.location.origin}/dishes`,
 				},
 			});
 		}

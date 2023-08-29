@@ -1,17 +1,18 @@
 import "./EventPage.css";
 
 import { useContext } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import DOMPurify from "dompurify";
 
 import ArrowButton from "../../common/ArrowButton";
 import { useTranslation } from "react-i18next";
 import { EventsContext } from "../../context/EventsContext";
+import useClickRedirection from "../../common/hooks/useClickRedirection";
 
 const EventPage = () => {
 	const { id } = useParams();
-	const navigate = useNavigate();
+	const navigate = useClickRedirection("/contact");
 	const { t, i18n } = useTranslation();
 	const events = useContext(EventsContext);
 	const data = events.find((event) => {
@@ -46,14 +47,12 @@ const EventPage = () => {
 						</strong>
 					</p>
 					<ArrowButton
-						handleClick={() => {
-							navigate("/contact");
-						}}
+						handleClick={navigate}
 						text={t("contact", { ns: "Site" })}
 					/>
 				</>
 			) : (
-				<div></div>
+				<div>Nie znaleziono wydarzenia</div>
 			)}
 		</main>
 	);

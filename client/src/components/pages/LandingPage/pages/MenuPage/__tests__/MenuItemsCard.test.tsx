@@ -15,6 +15,7 @@ describe("MenuItemsCard tests", () => {
 				image="pizza.jpg"
 				name="Pizza"
 				price="20"
+				variants="30/40cm"
 				description="Delicious pizza"
 			/>
 		);
@@ -22,6 +23,7 @@ describe("MenuItemsCard tests", () => {
 		expect(screen.getByAltText("dish")).toBeInTheDocument();
 		expect(screen.getByRole("heading", { name: "Pizza" })).toBeInTheDocument();
 		expect(screen.getByText("20zł")).toBeInTheDocument();
+		expect(screen.getByText("30/40cm")).toBeInTheDocument();
 		expect(screen.getByText("Delicious pizza")).toBeInTheDocument();
 	});
 });

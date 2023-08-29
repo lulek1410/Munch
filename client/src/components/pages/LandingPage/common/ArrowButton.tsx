@@ -1,21 +1,14 @@
 import "./ArrowButton.css";
 
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-
-type ClickHandler = () => void;
-
-interface ArrowButtonProps {
-	handleClick: ClickHandler;
-	text: string;
-}
+import ArrowButtonProps from "./interfaces/ArrowButtonProps";
 
 const ArrowButton = (props: ArrowButtonProps) => {
 	const { handleClick, text } = props;
 
 	return (
 		<button
-			id="arrow-btn"
-			className=" button speced-betwean-container"
+			className="button arrow-btn speced-betwean-container"
 			onClick={() => {
 				handleClick();
 			}}
