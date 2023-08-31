@@ -107,7 +107,11 @@ const AdminPage = () => {
 					list={ContactInfoList}
 					edit={ContactInfoEdit}
 				/>
-				<Resource name="peopleInfo" list={PeopleInfoList} edit={PeopleInfoEdit}/>
+				<Resource
+					name="peopleInfo"
+					list={PeopleInfoList}
+					edit={PeopleInfoEdit}
+				/>
 			</>
 		</Admin>
 	);

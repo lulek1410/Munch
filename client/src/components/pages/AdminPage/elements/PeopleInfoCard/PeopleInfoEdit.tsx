@@ -41,7 +41,7 @@ const PeopleInfoEdit = () => {
 	return (
 		<Edit
 			className="centered-container"
-			title="Edytuj informacje kontaktowe"
+			title="Edytuj informacje w zakładce ludzie"
 			mutationOptions={{ onError, onSuccess }}
 			mutationMode="pessimistic"
 		>

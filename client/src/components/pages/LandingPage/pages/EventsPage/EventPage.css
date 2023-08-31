@@ -9,7 +9,7 @@
 
 .event-img {
 	margin-block: 3rem 1rem;
-	width: max(60vw, 200px);
+	width: clamp(200px, 60vw, 500px);
 	box-shadow: 5px 5px 20px black;
 	border: 1rem var(--c-accent) solid;
 }

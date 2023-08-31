@@ -19,8 +19,7 @@ export const Auth0AuthProvider = (
 	async login() {
 		client.loginWithRedirect({
 			authorizationParams: {
-				redirect_uri:
-					loginRedirectUri ?? `${window.location.origin}/auth-callback`,
+				redirect_uri: loginRedirectUri ?? `${window.location.origin}/dishes`,
 			},
 		});
 	},

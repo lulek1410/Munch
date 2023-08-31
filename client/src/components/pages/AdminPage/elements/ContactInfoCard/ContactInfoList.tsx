@@ -31,10 +31,6 @@ const ContactInfoList = () => {
 							)}
 						/>
 					</ArrayField>
-					{/* <TextField source="openingHours" label="Godziny otwarcia" /> */}
-					<TextField source="facebook" label="Facebook" />
-					<TextField source="instagram" label="Instagram" />
-					<TextField source="tiktok" label="TikTok" />
 					<EditButton />
 				</CustomDatagrid>
 			</List>
