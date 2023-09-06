@@ -1,5 +1,5 @@
 # Munch
-Website for Munch street bar in Warsaw, currently not yet online.
+> Website for Munch street bar in Warsaw, currently not yet online.
 
 # Table of contents
 * [Technology Used](#technology-used)
